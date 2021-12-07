@@ -23,13 +23,11 @@ LABEL org.opencontainers.image.source="https://github.com/great-expectations/gre
 # avoid common permissioning pitfalls
 USER root
 
-COPY . /tmp/great_expectations_install
 
-RUN mkdir -p /usr/app && \
-    cd /tmp/great_expectations_install && \
-    pip install .[${GE_EXTRA_DEPS}] && \
-    rm -rf /tmp/great_expectations_install
 
+RUN mkdir -p /usr/app/great_expectations && \    
+    pip install great_expectations[${GE_EXTRA_DEPS}]==${GE_VERSION} && 
+    
 WORKDIR ${GE_HOME}
 
 ENTRYPOINT ["great_expectations"]
