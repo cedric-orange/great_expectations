@@ -25,12 +25,7 @@ LABEL org.opencontainers.image.source="https://github.com/great-expectations/gre
 # avoid common permissioning pitfalls
 USER root
 
-
-
-RUN mkdir -p /usr/app/great_expectations && \    
-    pip install great_expectations[spark,sqlalchemy,redshift,s3,gcp,snowflake]=="0.13.45"
+RUN pip install great_expectations[spark,sqlalchemy,redshift,s3,gcp,snowflake]=="0.13.45"
     
-WORKDIR ${GE_HOME}
-
 ENTRYPOINT ["great_expectations"]
 CMD ["--help"]
