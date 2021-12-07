@@ -1,6 +1,6 @@
 ARG PYTHON_DOCKER_TAG
 
-FROM python:${PYTHON_DOCKER_TAG}
+FROM python:3.9
 
 ARG GE_EXTRA_DEPS="spark,sqlalchemy,redshift,s3,gcp,snowflake"
 
@@ -8,6 +8,8 @@ ENV PYTHONIOENCODING utf-8
 ENV LANG C.UTF-8
 # Path where the root of the GE project will be expected
 ENV GE_HOME /usr/app/great_expectations
+#ENV GE_VERSION=${GITHUB_REF_NAME}
+ENV GE_VERSION="0.13.45"
 
 LABEL maintainer="great-expectations"
 LABEL org.opencontainers.image.title="Great Expectations"
