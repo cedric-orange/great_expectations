@@ -28,7 +28,7 @@ USER root
 
 
 RUN mkdir -p /usr/app/great_expectations && \    
-    pip install great_expectations[${GE_EXTRA_DEPS}]==${GE_VERSION} && 
+    pip install great_expectations[${GE_EXTRA_DEPS}]=="${GE_VERSION}" && 
     
 WORKDIR ${GE_HOME}
 
