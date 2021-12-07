@@ -6,8 +6,8 @@ ARG GE_EXTRA_DEPS="spark,sqlalchemy,redshift,s3,gcp,snowflake"
 
 ENV PYTHONIOENCODING utf-8
 ENV LANG C.UTF-8
-ENV HOME /root
-ENV PATH /usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${HOME}/.local/bin
+# ENV HOME /root
+# ENV PATH /usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${HOME}/.local/bin
 # Path where the root of the GE project will be expected
 ENV GE_HOME /usr/app/great_expectations
 
@@ -27,7 +27,7 @@ USER root
 
 COPY . /tmp/great_expectations_install
 
-RUN mkdir -p /usr/app ${HOME} && \
+RUN mkdir -p /usr/app && \
     cd /tmp/great_expectations_install && \
     pip install .[${GE_EXTRA_DEPS}] && \
     rm -rf /tmp/great_expectations_install
