@@ -28,7 +28,7 @@ USER root
 
 
 RUN mkdir -p /usr/app/great_expectations && \    
-    pip install great_expectations[${GE_EXTRA_DEPS}]=="${GE_VERSION}" && 
+    pip install great_expectations[spark,sqlalchemy,redshift,s3,gcp,snowflake]=="0.13.45" && 
     
 WORKDIR ${GE_HOME}
 
